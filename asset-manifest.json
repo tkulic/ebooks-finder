@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ebooks-finder/static/css/main.1eb362b7.chunk.css",
+    "main.js": "/ebooks-finder/static/js/main.e7067fb2.chunk.js",
+    "main.js.map": "/ebooks-finder/static/js/main.e7067fb2.chunk.js.map",
+    "runtime-main.js": "/ebooks-finder/static/js/runtime-main.a338b149.js",
+    "runtime-main.js.map": "/ebooks-finder/static/js/runtime-main.a338b149.js.map",
+    "static/js/2.926ecf49.chunk.js": "/ebooks-finder/static/js/2.926ecf49.chunk.js",
+    "static/js/2.926ecf49.chunk.js.map": "/ebooks-finder/static/js/2.926ecf49.chunk.js.map",
+    "index.html": "/ebooks-finder/index.html",
+    "static/css/main.1eb362b7.chunk.css.map": "/ebooks-finder/static/css/main.1eb362b7.chunk.css.map",
+    "static/js/2.926ecf49.chunk.js.LICENSE.txt": "/ebooks-finder/static/js/2.926ecf49.chunk.js.LICENSE.txt",
+    "static/media/book-placeholder.785232d9.svg": "/ebooks-finder/static/media/book-placeholder.785232d9.svg",
+    "static/media/loading-spinner.10d1208f.gif": "/ebooks-finder/static/media/loading-spinner.10d1208f.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a338b149.js",
+    "static/js/2.926ecf49.chunk.js",
+    "static/css/main.1eb362b7.chunk.css",
+    "static/js/main.e7067fb2.chunk.js"
+  ]
+}
