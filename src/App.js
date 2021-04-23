@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header'
+import SearchBar from './components/SearchBar'
+import BooksGrid from './components/BooksGrid'
+
+import loadingSpinner from "./img/loading-spinner.gif"
+import { formatAPIData } from "./utils/formatAPIData"
+import Footer from './components/Footer'
+
+export default function App() {
+    const [searchedBooks, setSearchedBooks] = useState([])
+    const [message, setMessage] = useState("")
+
+    function fetchData(query) {
+        console.log(query.eBooksonly)
+        console.log(query.textInput)
+        const eBooks = query.eBooksonly ? "&filter=free-ebooks" : ""
+        console.log(eBooks)
+        setMessage(<img src={loadingSpinner} alt="loading spinner" className="loading-spinner" />)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${query.textInput}&maxResults=${query.resultsCount}&printType=${query.publicationType}&orderBy=${query.sortOrder}${eBooks}&filter=free-ebooks`)
+
+            // q=query+inauthor:value/intitle:value  &filter=free-ebooks &maxResults=40 &printType=all/books/magazines &orderBy=newest/relevance
+
+            .then(res => res.json())
+            .then(data => {
+                setSearchedBooks(formatAPIData(data.items))
+                setMessage("")
+            })
+            .catch(err => {
+                console.log(err.message)
+                setMessage(err.message)
+                setSearchedBooks([])
+            })
+    }
+
+    return (
+        <div>
+            <Header />
+            <div className="wrapper">
+                <SearchBar fetchData={fetchData} />
+                <BooksGrid booksData={searchedBooks} />
+                <p className="message">{message}</p>
+                <Footer />
+            </div>
+
+        </div >
+    )
 }
-
-export default App;
