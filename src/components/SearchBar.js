@@ -43,8 +43,6 @@ export default function SearchBar(props) {
         })
     }
 
-    console.log(query)
-
     return (
         <div className="search-form">
             <form onSubmit={handleSubmit}>

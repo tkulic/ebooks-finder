@@ -19,9 +19,6 @@ export default function App() {
         console.log(eBooks)
         setMessage(<img src={loadingSpinner} alt="loading spinner" className="loading-spinner" />)
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${query.textInput}&maxResults=${query.resultsCount}&printType=${query.publicationType}&orderBy=${query.sortOrder}${eBooks}&filter=free-ebooks`)
-
-            // q=query+inauthor:value/intitle:value  &filter=free-ebooks &maxResults=40 &printType=all/books/magazines &orderBy=newest/relevance
-
             .then(res => res.json())
             .then(data => {
                 setSearchedBooks(formatAPIData(data.items))

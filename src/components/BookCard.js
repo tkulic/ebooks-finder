@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function BookCard({ bookData }) {
-    // console.log(bookData.authors.join(", ")) // Not working?!
     return (
         <div className="book-card">
             <a href={bookData.googleBooksLink}><h2 className="book-title" target="_blank" rel="noreferrer">{bookData.title}</h2></a>
@@ -20,7 +19,6 @@ export default function BookCard({ bookData }) {
                     </a>
                 </div>
             </div>
-
         </div>
     )
 }
